@@ -1,8 +1,11 @@
 package com.dona.tarea.controller;
 
+import javax.validation.Valid;
+
 import com.dona.tarea.domain.Product;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,10 +24,17 @@ public class HomeController {
     }
     
     @RequestMapping(value="/save", method=RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute Product product) {
+    public ModelAndView save(@Valid @ModelAttribute Product product,BindingResult result) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("name", product.getName());
-        modelAndView.setViewName("result");
+        if(result.hasErrors()){
+            // result.getAllErrors().forEach(error->System.out.println(error.getDefaultMessage()));
+            modelAndView.setViewName("index");
+        }
+        
+        else{
+            modelAndView.addObject("name", product.getName());
+            modelAndView.setViewName("result");
+        }
         return modelAndView;
     }
     

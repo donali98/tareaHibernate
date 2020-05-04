@@ -7,12 +7,24 @@
 </head>
 <body></body>
     <form method="POST" th:action="@{/save}" th:object="${product}">
-        <label for="code">Codigo</label><input th:field="*{code}" type="text" name="code" id="code">
-        <label for="name">Nombre</label><input th:field="*{name}" type="text" name="name" id="name">
-        <label for="brand">Brand</label><input type="text" th:field="*{brand}" name="brand" id="brand">
-        <label for="description">Descripcion</label><textarea th:field="*{description}" name="description" id="description" cols="30" rows="10"></textarea>
-        <label for="stock">Existencias</label><input type="number" th:field="*{stock}" name="stock" id="stock">
-        <label for="inDate">Fecha de ingreso</label><input type="date" th:field="*{inDate}" name="inDate" id="in-date">
+        <label for="code">Codigo</label>
+        <input th:field="*{code}" type="text" name="code" id="code">
+        <span th:errors="*{code}"></span>
+        <label for="name">Nombre</label>
+        <input th:field="*{name}" type="text" name="name" id="name">
+        <span th:errors="*{name}"></span>
+        <label for="brand">Brand</label>
+        <input type="text" th:field="*{brand}" name="brand" id="brand">
+        <span th:errors="*{brand}"></span>
+        <label for="description">Descripcion</label>
+        <textarea th:field="*{description}" name="description" id="description" cols="30" rows="10"></textarea>
+        <span th:errors="*{description}"></span>
+        <label for="stock">Existencias</label>
+        <input type="number" th:field="*{stock}" name="stock" id="stock">
+        <span th:errors="*{stock}"></span>
+        <label for="inDate">Fecha de ingreso</label>
+        <input type="text" th:field="*{inDate}" name="inDate" id="in-date">
+        <span th:errors="*{inDate}"></span>
         <button type="submit">Enviar</button>
     </form>
 </body>
