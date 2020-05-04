@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto</title>
+</head>
+<body></body>
+    <form method="POST" th:action="@{/save}" th:object="${product}">
+        <label for="code">Codigo</label><input th:field="*{code}" type="text" name="code" id="code">
+        <label for="name">Nombre</label><input th:field="*{name}" type="text" name="name" id="name">
+        <label for="brand">Brand</label><input type="text" th:field="*{brand}" name="brand" id="brand">
+        <label for="description">Descripcion</label><textarea th:field="*{description}" name="description" id="description" cols="30" rows="10"></textarea>
+        <label for="stock">Existencias</label><input type="number" th:field="*{stock}" name="stock" id="stock">
+        <label for="inDate">Fecha de ingreso</label><input type="date" th:field="*{inDate}" name="inDate" id="in-date">
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
